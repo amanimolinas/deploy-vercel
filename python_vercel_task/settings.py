@@ -30,7 +30,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*', '.vercel.app']
+ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app']
 
 
 # Application definition
@@ -87,7 +87,7 @@ DATABASES = {
         "USER": "postgres.kdxxixtzgpoiebqpekwb", #la configuracion de la base de datos por defecto es postgres
         "HOST": os.environ.get("SUPABASE_HOST"),
         "PASSWORD": os.environ.get("SUPABASE_PASSWORD"),
-        "PORT": "5432",
+        "PORT": "6543",
         "OPTIONS": {
             "sslmode": "verify-full",
             "sslrootcert": os.path.join(BASE_DIR, 'prod-ca-2021.crt'),
