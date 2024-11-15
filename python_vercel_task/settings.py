@@ -14,6 +14,7 @@ from pathlib import Path
 
 import os 
 from dotenv import load_dotenv 
+from decouple import config
 
 load_dotenv() # load environment variables from .env file carga las variables de enternos que estan definidas en .env
 
@@ -25,7 +26,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get("SECRET_KEY")
+SECRET_KEY = config('SECRET_KEY')
+#SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -84,9 +86,9 @@ DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
         "NAME": "postgres",
-        "USER": "postgres.kdxxixtzgpoiebqpekwb", #la configuracion de la base de datos por defecto es postgres
-        "HOST": os.environ.get("SUPABASE_HOST"),
-        "PASSWORD": os.environ.get("SUPABASE_PASSWORD"),
+        "USER": "postgres", #la configuracion de la base de datos por defecto es postgres
+        "HOST": config("SUPABASE_HOST"),
+        "PASSWORD": config("SUPABASE_PASSWORD"),
         "PORT": "6543",
         "OPTIONS": {
             "sslmode": "verify-full",
